@@ -78,7 +78,7 @@ public class Book {
     }
 
     public void setPrice(double price) {
-        if(price > 0) {
+        if(price < 0) {
             throw new IllegalArgumentException("Price cannot be less than 0");
         }
         else {
@@ -92,5 +92,12 @@ public class Book {
 
     public void setAvailable(boolean available) {
         isAvailable = available;
+    }
+
+    //toString
+
+    @Override
+    public String toString() {
+        return bookId + ": The price of " + bookName + " written by " + author + " of genre " + genre + " is " + price + ".Availability: " + (isAvailable ? "Yes" : "No");
     }
 }
